@@ -38,7 +38,7 @@ const Library = () => {
                 </div>
               );
             }
-              if (playlist.tracks.total) {
+              else {
                 return (
                   <div
                     className="playlist-card"
@@ -67,7 +67,8 @@ const Library = () => {
                 );
               }
             
-          })}
+          }
+          )}
       </div>
     </div>
   );
