@@ -12,14 +12,29 @@ const Player = () => {
   const [currentTrack, setCurrentTrack] = useState({});
   const [currentIndex, setCurrentIndex] = useState(0)
   useEffect(() => {
-    if (location.state.id) {
-      apiClient.get("playlists/" + location.state.id + "/tracks")
+    if (location.state === null) {
+      //let id = "";
+      apiClient
+        .get("me/playlists")
         .then(function (response) {
-          //console.log(response.data.items)
+          const id = response.data.items[0]?.id;
+          apiClient
+            .get("playlists/" +id + "/tracks")
+            .then(function (response) {
+              setTracks(response.data.items);
+              setCurrentTrack(response.data.items[0].track);
+            });
+        })
+    }
+    else {
+      apiClient
+        .get("playlists/" + location.state.id + "/tracks")
+        .then(function (response) {
+          console.log("else -- "+location.state.id);
           setTracks(response.data.items);
           setCurrentTrack(response.data.items[0].track);
-          //console.log(currentTrack)
-        })
+          console.log(location.state.id);
+        });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.state]);

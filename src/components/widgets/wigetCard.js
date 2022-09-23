@@ -5,7 +5,6 @@ import "./widgetCard.css";
 import WidgetEntry from './widgetEntry';
 
 const WigetCard = ({ title, similar, featured, newRelease }) => {
-  console.log(similar);
   return (
     <div className="widgetcard-body">
       <p className="widget-title">{title}</p>
