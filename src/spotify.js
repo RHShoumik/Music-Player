@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 const clientId = "0826b23d7a8b49e08b9841d300963f2a";
-console.log(window.location.href);
-const redirectUri = "http://localhost:3000";
+// console.log(window.location.href);
+const redirectUri = "https://melodious-bienenstitch-64fdf5.netlify.app";
 const authEndpoint = "https://accounts.spotify.com/authorize?";
 const scopes = ["user-library-read", "playlist-read-private"];
 
